@@ -1,0 +1,3 @@
+---
+- name: Install Caffeine (OS X)
+  homebrew_cask: name=caffeine state=present

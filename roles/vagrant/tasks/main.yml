@@ -1,0 +1,8 @@
+---
+- name: Install Vagrant (OS X)
+  homebrew_cask: name=vagrant state=present
+  when: ansible_os_family == 'Darwin'
+
+- name: Install Vagrant (Arch)
+  pacman: name=vagrant state=present
+  when: ansible_os_family == 'Archlinux'

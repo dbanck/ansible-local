@@ -1,0 +1,455 @@
+" Less clutter in the GUI.
+let no_buffers_menu=1
+
+" Toolbars are so yesterday.
+set guioptions-=T
+
+" Highlight the current line
+set cursorline
+
+" Does anybody really like the autocomplete popup help?
+set completeopt-=preview
+
+" Don't blink.
+set gcr=a:blinkon0
+
+" Customize the wildmenu.
+set wildignore=*.dll,*.o,*.pyc,*.bak,*.exe,*.jpg,*.jpeg,*.png,*.gif,node_modules,.git,bower_components,vendor,dist,env,build,deps
+set wildmode=list:full
+
+" We shall not forget.
+set history=3000
+
+" Disable mouse.
+set mouse=
+
+" Hide mouse pointer while typing
+set mousehide
+set mousemodel=popup
+
+" Show line numbers.
+" set number
+set relativenumber
+
+" Code folding is neat.
+set foldmethod=indent
+set foldlevel=99
+set foldenable
+
+" Remember vim state
+set viminfo=!,'100,\"100,:20,<50,s10,h,n~/.viminfo
+
+" Remember cursor position
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+
+" No backups, plx
+set nobackup
+set dir=~/.cache/vim/session
+
+" No one likes you, swapfile.
+set noswapfile
+
+" Persistent undo, however, is pretty cool.
+set undodir=~/.vim/undodir
+set undofile
+set undolevels=1000
+set undoreload=10000
+
+" Syntax highlighting? Yes please!
+syntax on
+
+" We're always on a fast connection to our vim.
+set ttyfast
+
+" Background
+set bg=dark
+
+" Highlight textwidth column
+set colorcolumn=+0
+
+" Keep some more lines visible
+set scrolloff=3
+
+" Leave Ex Mode
+nnoremap Q <nop>
+
+" Better search
+set hlsearch
+set ignorecase
+
+" Override ignorecase if the search string contains upper case characters.
+set smartcase
+
+" Highlight certain whitespaces
+set list
+
+" Enable automatic title setting for terminals
+set title
+set titleold="Terminal"
+set titlestring=%F\ -\ Vim
+
+" Statusbar and Linenumbers
+" -------------------------
+" Make the command line two lines heigh and change the statusline display to
+" something that looks useful.
+set cmdheight=2
+
+" With fugitive in place.
+set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+set showmode
+
+" ===========
+" Visual Mode
+" ===========
+
+" In visual mode when you press * or # to search for the current selection
+vnoremap <silent> * :call VisualSearch('f')<CR>
+vnoremap <silent> # :call VisualSearch('b')<CR>
+
+function! CmdLine(str)
+    exe "menu Foo.Bar :" . a:str
+    emenu Foo.Bar
+    unmenu Foo
+endfunction
+
+" From an idea by Michael Naumann
+function! VisualSearch(direction) range
+    let l:saved_reg = @"
+    execute "normal! vgvy"
+
+    let l:pattern = escape(@", '\\/.*$^~[]')
+    let l:pattern = substitute(l:pattern, "\n$", "", "")
+
+    if a:direction == 'b'
+        execute "normal ?" . l:pattern . "^M"
+    elseif a:direction == 'gv'
+        call CmdLine("vimgrep " . '/'. l:pattern . '/' . ' **/*.')
+    elseif a:direction == 'f'
+        execute "normal /" . l:pattern . "^M"
+    endif
+
+    let @/ = l:pattern
+    let @" = l:saved_reg
+endfunction
+
+" =========================
+" Default filetype settings
+" =========================
+
+" Indention
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set expandtab
+
+" But don't outdent hashes
+inoremap # X#
+
+" Multiples of shiftwidth, always!
+set shiftround
+
+" No exceptions, it's > y2k
+set encoding=utf-8
+
+" Prefer unix line ends
+set fileformats=unix,dos,mac
+
+" Controversial.
+set textwidth=80
+
+" ====================
+" Plugin configuration
+" ====================
+
+" CTRL-P
+noremap <leader>t <Esc>:CtrlP<CR>
+noremap <leader>T <Esc>:CtrlPClearAllCaches<CR>
+noremap <leader>m <Esc>:CtrlPBuffer<CR>
+
+" Closetag
+let g:closetag_html_style=1
+
+" Solarized (colorscheme)
+set background=dark
+let g:solarized_termtrans=1
+
+" Lightline setup
+let g:lightline = {
+      \ 'colorscheme': 'jellybeans',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ], ['ctrlpmark'] ],
+      \   'right': [ [ 'syntastic', 'lineinfo' ], ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ]
+      \ },
+      \ 'component': {
+      \   'readonly': '%{&readonly?"":""}',
+      \ },
+      \ 'component_function': {
+      \   'fugitive': 'MyFugitive',
+      \   'filename': 'MyFilename',
+      \   'fileformat': 'MyFileformat',
+      \   'filetype': 'MyFiletype',
+      \   'fileencoding': 'MyFileencoding',
+      \   'mode': 'MyMode',
+      \   'ctrlpmark': 'CtrlPMark',
+      \ },
+      \ 'component_expand': {
+      \   'syntastic': 'SyntasticStatuslineFlag',
+      \ },
+      \ 'component_type': {
+      \   'syntastic': 'error',
+      \ },
+      \ 'separator': { 'left': '', 'right': '' },
+      \ 'subseparator': { 'left': '', 'right': '' }
+      \ }
+
+function! MyModified()
+  return &ft =~ 'help' ? '' : &modified ? '+' : &modifiable ? '' : '-'
+endfunction
+
+function! MyReadonly()
+  return &ft !~? 'help' && &readonly ? 'RO' : ''
+endfunction
+
+function! MyFilename()
+  let fname = expand('%:t')
+  return fname == 'ControlP' ? g:lightline.ctrlp_item :
+        \ fname == '__Tagbar__' ? g:lightline.fname :
+        \ fname =~ '__Gundo\|NERD_tree' ? '' :
+        \ &ft == 'vimfiler' ? vimfiler#get_status_string() :
+        \ &ft == 'unite' ? unite#get_status_string() :
+        \ &ft == 'vimshell' ? vimshell#get_status_string() :
+        \ ('' != MyReadonly() ? MyReadonly() . ' ' : '') .
+        \ ('' != fname ? fname : '[No Name]') .
+        \ ('' != MyModified() ? ' ' . MyModified() : '')
+endfunction
+
+function! MyFugitive()
+  try
+    if expand('%:t') !~? 'Tagbar\|Gundo\|NERD' && &ft !~? 'vimfiler' && exists('*fugitive#head')
+      let mark = ''  " edit here for cool mark
+      let _ = fugitive#head()
+      return strlen(_) ? mark._ : ''
+    endif
+  catch
+  endtry
+  return ''
+endfunction
+
+function! MyFileformat()
+  return winwidth(0) > 70 ? &fileformat : ''
+endfunction
+
+function! MyFiletype()
+  return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype : 'no ft') : ''
+endfunction
+
+function! MyFileencoding()
+  return winwidth(0) > 70 ? (strlen(&fenc) ? &fenc : &enc) : ''
+endfunction
+
+function! MyMode()
+  let fname = expand('%:t')
+  return fname == '__Tagbar__' ? 'Tagbar' :
+        \ fname == 'ControlP' ? 'CtrlP' :
+        \ fname == '__Gundo__' ? 'Gundo' :
+        \ fname == '__Gundo_Preview__' ? 'Gundo Preview' :
+        \ fname =~ 'NERD_tree' ? 'NERDTree' :
+        \ &ft == 'unite' ? 'Unite' :
+        \ &ft == 'vimfiler' ? 'VimFiler' :
+        \ &ft == 'vimshell' ? 'VimShell' :
+        \ winwidth(0) > 60 ? lightline#mode() : ''
+endfunction
+
+function! CtrlPMark()
+  if expand('%:t') =~ 'ControlP'
+    call lightline#link('iR'[g:lightline.ctrlp_regex])
+    return lightline#concatenate([g:lightline.ctrlp_prev, g:lightline.ctrlp_item
+          \ , g:lightline.ctrlp_next], 0)
+  else
+    return ''
+  endif
+endfunction
+
+let g:ctrlp_status_func = {
+  \ 'main': 'CtrlPStatusFunc_1',
+  \ 'prog': 'CtrlPStatusFunc_2',
+  \ }
+
+function! CtrlPStatusFunc_1(focus, byfname, regex, prev, item, next, marked)
+  let g:lightline.ctrlp_regex = a:regex
+  let g:lightline.ctrlp_prev = a:prev
+  let g:lightline.ctrlp_item = a:item
+  let g:lightline.ctrlp_next = a:next
+  return lightline#statusline(0)
+endfunction
+
+function! CtrlPStatusFunc_2(str)
+  return lightline#statusline(0)
+endfunction
+
+let g:tagbar_status_func = 'TagbarStatusFunc'
+
+function! TagbarStatusFunc(current, sort, fname, ...) abort
+    let g:lightline.fname = a:fname
+  return lightline#statusline(0)
+endfunction
+
+augroup AutoSyntastic
+  autocmd!
+  autocmd BufWritePost *.c,*.cpp call s:syntastic()
+augroup END
+function! s:syntastic()
+  SyntasticCheck
+  call lightline#update()
+endfunction
+
+let g:unite_force_overwrite_statusline = 0
+let g:vimfiler_force_overwrite_statusline = 0
+let g:vimshell_force_overwrite_statusline = 0
+
+" Tagbar
+nmap <F8> :TagbarToggle<CR>
+
+let g:tagbar_type_go = {
+    \ 'ctagstype' : 'go',
+    \ 'kinds'     : [
+        \ 'p:package',
+        \ 'i:imports:1',
+        \ 'c:constants',
+        \ 'v:variables',
+        \ 't:types',
+        \ 'n:interfaces',
+        \ 'w:fields',
+        \ 'e:embedded',
+        \ 'm:methods',
+        \ 'r:constructor',
+        \ 'f:functions'
+    \ ],
+    \ 'sro' : '.',
+    \ 'kind2scope' : {
+        \ 't' : 'ctype',
+        \ 'n' : 'ntype'
+    \ },
+    \ 'scope2kind' : {
+        \ 'ctype' : 't',
+        \ 'ntype' : 'n'
+    \ },
+    \ 'ctagsbin'  : 'gotags',
+    \ 'ctagsargs' : '-sort -silent'
+\ }
+
+" Vim-Go
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+
+" Editorconfig
+let g:EditorConfig_exclude_patterns = ['fugitive://.*']
+
+" Python-Mode
+let g:pymode_lint = 1
+let g:pymode_lint_checkers = ['pyflakes', 'pep8', 'mccabe']
+let g:pymode_lint_on_write = 1
+let g:pymode_lint_unmodified = 1
+let g:pymode_indent = 1
+let g:pymode_rope = 0
+
+" Load plugins
+source ~/.vim/plug.vim
+
+" ==================
+" Global Keymappings
+" ==================
+
+set pastetoggle=<F3>
+
+" arrow keys move visible lines
+inoremap <Down> <C-R>=pumvisible() ? "\<lt>Down>" : "\<lt>C-O>gj"<CR>
+inoremap <Up> <C-R>=pumvisible() ? "\<lt>Up>" : "\<lt>C-O>gk"<CR>
+noremap <Down> gj
+nnoremap <Up> gk
+vnoremap <Down> gj
+vnoremap <Up> gk
+
+" Hide matches on <leader>space
+nnoremap <leader><space> :nohlsearch<cr>
+
+" Remove trailing whitespace on <leader>S
+nnoremap <leader>S :%s/\s\+$//<cr>:let @/=''<CR>
+
+" Hide search highlights
+nnoremap <leader>n :noh<CR>
+
+" ===============
+" Useful snippets
+" ===============
+
+function! HighlightNonBreakingSpace()
+  syn match suckingNonBreakingSpace " " containedin=ALL
+  hi suckingNonBreakingSpace guibg=#157249
+endfunction
+autocmd BufEnter * :call HighlightNonBreakingSpace()
+
+noremap <leader>js %!python -m json.tool<CR>
+
+" ==========================
+" Filetype specific settings
+" ==========================
+
+" Sass
+autocmd FileType sass setlocal shiftwidth=4 textwidth=0 softtabstop=4
+
+" PHP
+autocmd FileType php setlocal shiftwidth=4 textwidth=80 softtabstop=4 noexpandtab nolist
+
+" Yaml
+autocmd FileType yaml setlocal shiftwidth=2 textwidth=0 softtabstop=2
+
+" HTML and templates
+fun! s:SelectHTML()
+let n = 1
+while n < 50 && n < line("$")
+  " check for jinja
+  if getline(n) =~ '{%\s*\(extends\|block\|macro\|set\|if\|for\|include\|trans\)\>'
+    set ft=jinja.html
+    return
+  endif
+  " check for mako
+    if getline(n) =~ '<%\(def\|inherit\)'
+      set ft=mako
+      return
+    endif
+    " check for genshi
+    if getline(n) =~ 'xmlns:py\|py:\(match\|for\|if\|def\|strip\|xmlns\)'
+      set ft=genshi
+      return
+    endif
+    let n = n + 1
+  endwhile
+  " go with html
+  set ft=html
+endfun
+
+" Go
+au FileType go nmap <Leader>s <Plug>(go-implements)
+au FileType go nmap <Leader>i <Plug>(go-info)
+au FileType go nmap <Leader>gd <Plug>(go-doc)
+au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
+au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
+au FileType go nmap <leader>r <Plug>(go-run)
+au FileType go nmap <leader>b <Plug>(go-build)
+au FileType go nmap <leader>t <Plug>(go-test)
+au FileType go nmap <leader>c <Plug>(go-coverage)
+
+autocmd BufNewFile,BufRead *.html,*.htm  call s:SelectHTML()
+
+" =================
+" Personal settings
+" =================
+
+colorscheme jellybeans
+call togglebg#map("<F5>")
+
+let g:syntastic_python_checkers=['flake8']

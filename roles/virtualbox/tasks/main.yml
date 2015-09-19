@@ -1,0 +1,11 @@
+---
+- name: Install VirtualBox (OS X)
+  homebrew_cask: name=virtualbox state=present
+  when: ansible_os_family == 'Darwin'
+
+- name: Install VirtualBox (Arch)
+  pacman: name={{ item }} state=present
+  with_items:
+    - virtualbox
+    - virtualbox-host-modules
+  when: ansible_os_family == 'Archlinux'

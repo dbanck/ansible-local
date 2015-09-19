@@ -1,0 +1,8 @@
+---
+- name: Install VLC (OS X)
+  homebrew_cask: name=vlc state=present
+  when: ansible_os_family == 'Darwin'
+
+- name: Install VLC (Arch)
+  pacman: name=vlc state=present
+  when: ansible_os_family == 'Archlinux'

@@ -1,0 +1,4 @@
+---
+- name: Install Dropbox (OS X)
+  homebrew_cask: name=dropbox state=present
+  when: ansible_os_family == 'Darwin'

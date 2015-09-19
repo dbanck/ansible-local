@@ -1,0 +1,26 @@
+---
+- name: Install nodejs (OS X)
+  homebrew: name=node state=present
+  when: ansible_os_family == 'Darwin'
+
+- name: Install nodejs (Arch)
+  pacman: name=nodejs state=present
+  when: ansible_os_family == 'Archlinux'
+
+- include_vars: darwin.yml
+  when: ansible_os_family == 'Darwin'
+
+- include_vars: arch.yml
+  when: ansible_os_family == 'Archlinux'
+
+- name: Write npmrc
+  template: src=npmrc.j2 dest=~/.npmrc
+
+- name: Install npm global packages
+  npm: name={{ item }} global=yes
+  with_items:
+    - n
+    - grunt
+    - gulp
+    - bower
+    - yo

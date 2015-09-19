@@ -1,0 +1,3 @@
+---
+- name: Install SourceTree (OS X)
+  homebrew_cask: name=sourcetree state=present

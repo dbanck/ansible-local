@@ -1,0 +1,17 @@
+---
+- name: Install GPG Tools (OS X)
+  homebrew_cask: name=gpgtools state=present
+  when: ansible_os_family == 'Darwin'
+
+- name: Install gnupg (Arch)
+  pacman: name=gnupg state=present
+  when: ansible_os_family == 'Archlinux'
+
+- name: Create gnupg dir
+  file: path=~/.gnupg state=directory mode=0700
+
+- name: Write gpg config
+  copy: src=gpg.conf dest=~/.gnupg/gpg.conf mode=0600
+
+- name: Download keyserver certs
+  get_url: url=https://sks-keyservers.net/sks-keyservers.netCA.pem dest=/etc/sks-keyservers.netCA.pem

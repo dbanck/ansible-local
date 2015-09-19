@@ -1,0 +1,3 @@
+---
+- name: Install Tunnelblick (OS X)
+  homebrew_cask: name=tunnelblick state=present

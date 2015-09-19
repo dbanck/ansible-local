@@ -1,0 +1,14 @@
+---
+- name: Install git (OS X)
+  homebrew: name=git state=present
+  when: ansible_os_family == 'Darwin'
+
+- name: Install git (Arch)
+  pacman: name=git state=present
+  when: ansible_os_family == 'Archlinux'
+
+- name: Write gitconfig
+  template: src=gitconfig.j2 dest=~/.gitconfig
+
+- name: Write gitignore
+  copy: src=gitignore dest=~/.gitignore

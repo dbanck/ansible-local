@@ -1,0 +1,3 @@
+---
+- name: Install f.lux (OS X)
+  homebrew_cask: name=flux state=present

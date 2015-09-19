@@ -1,0 +1,6 @@
+#!/bin/bash
+
+project=$1
+
+traq "$project" $2
+tmux -2 a -t "$project" || tmux -2 new -s "$project"

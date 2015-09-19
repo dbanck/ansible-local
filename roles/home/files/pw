@@ -1,0 +1,39 @@
+#!/usr/bin/env python3
+
+import argparse
+import getpass
+import hashlib
+import platform
+import subprocess
+
+
+if platform.system() == 'Darwin':
+    OPENSSL_CMD = ("echo '{}\c' | "
+                   "openssl dgst -sha256 -binary -hmac '{}' | "
+                   "openssl enc -base64")
+    COPY_CMD = "echo '{}\c' | pbcopy"
+else:
+    OPENSSL_CMD = ("echo -n '{}' | "
+                   "openssl dgst -sha256 -binary -hmac '{}' | "
+                   "openssl enc -base64")
+    COPY_CMD = "echo -n '{}' | xclip -selection c"
+
+parser = argparse.ArgumentParser(description='Create secure passwords.')
+parser.add_argument('-s', '--silent', dest='silent', action='store_true',
+                    default=False,
+                    help='don\'t print anything, just copy the password')
+args = parser.parse_args()
+
+phrase = input("Phrase: ")
+master = getpass.getpass("Master Password: ")
+master_md5 = hashlib.md5(master.encode('utf-8')).hexdigest()
+verifier = master_md5.encode('utf-8')[:3]
+pw = subprocess.check_output(OPENSSL_CMD.format(phrase, master),
+                             shell=True).strip().decode('utf-8')
+
+if not args.silent:
+    print("Password verifier: {}\n".format(verifier.decode('utf-8')))
+    print(pw)
+
+subprocess.call(COPY_CMD.format(pw),
+                shell=True)

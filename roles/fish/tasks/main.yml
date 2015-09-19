@@ -1,0 +1,35 @@
+---
+- name: Install fish (OS X)
+  homebrew: name=fish state=present
+  when: ansible_os_family == 'Darwin'
+
+- name: Install fish (Arch)
+  pacman: name=fish state=present
+  when: ansible_os_family == 'Archlinux'
+
+- name: Create dirs
+  file: path=~/.config/{{ item }} state=directory mode=0755
+  with_items:
+    - fish
+    - omf
+
+- name: Clone oh-my-fish
+  git: repo=https://github.com/oh-my-fish/oh-my-fish.git dest=~/.local/share/omf
+
+- name: Write fish config
+  copy: src=config.fish dest=~/.config/fish/config.fish
+
+- name: Write oh-my-fish theme
+  copy: src=theme dest=~/.config/omf/theme
+
+- name: Write oh-my-fish bundle
+  copy: src=bundle dest=~/.config/omf/bundle
+
+- name: Installing fish themes/packages
+  command: fish -c "omf install"
+
+- name: Print Info 1
+  debug: msg="Please add /usr/local/bin/fish to /etc/shells"
+
+- name: Print Info 2
+  debug: msg="Set fish as default shell with chsh -s /usr/local/bin/fish"

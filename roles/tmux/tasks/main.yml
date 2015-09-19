@@ -1,0 +1,14 @@
+---
+- name: Install tmux (OS X)
+  homebrew: name=tmux state=present
+  when: ansible_os_family == 'Darwin'
+
+- name: Install tmux (Arch)
+  pacman: name=tmux state=present
+  when: ansible_os_family == 'Archlinux'
+
+- name: Write tmux config
+  copy: src=tmux.conf dest=~/.tmux.conf
+
+- name: Write tmux-line config
+  copy: src=tmux-line.conf dest=~/.tmux-line.conf

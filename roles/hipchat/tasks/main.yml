@@ -1,0 +1,4 @@
+---
+- name: Install HipChat (OS X)
+  homebrew_cask: name=hipchat state=present
+  when: ansible_os_family == 'Darwin'

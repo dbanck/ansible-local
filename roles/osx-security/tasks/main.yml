@@ -1,0 +1,101 @@
+---
+- name: Enable Application Layer Firewall
+  sudo: True
+  command: defaults write /Library/Preferences/com.apple.alf {{ item }}
+  with_items:
+    - globalstate -int 1
+    - allowsignedenabled -bool false
+    - loggingenabled -bool true
+    - stealthenabled -bool true
+
+- name: Info Firewall
+  debug: msg="You might want to install something to block outgoing connections"
+
+- name: Disable user lauch agents
+  sudo: True
+  command: launchctl unload -w /System/Library/LaunchAgents/{{ item }}.plist
+  with_items:
+    - com.apple.AddressBook.SourceSync
+    - com.apple.AirPlayUIAgent
+    - com.apple.AOSHeartbeat
+    - com.apple.AOSPushRelay
+    - com.apple.bird
+    - com.apple.CalendarAgent
+    - com.apple.CallHistoryPluginHelper
+    - com.apple.CallHistorySyncHelper
+    - com.apple.cloudd
+    - com.apple.cloudfamilyrestrictionsd-mac
+    - com.apple.cloudpaird
+    - com.apple.cloudphotosd
+    - com.apple.CoreLocationAgent
+    - com.apple.coreservices.appleid.authentication
+    - com.apple.EscrowSecurityAlert
+    - com.apple.findmymacmessenger
+    - com.apple.gamed
+    - com.apple.helpd
+    - com.apple.icloud.fmfd
+    - com.apple.idsremoteurlconnectionagent
+    - com.apple.imagent
+    - com.apple.IMLoggingAgent
+    - com.apple.locationmenu
+    - com.apple.notificationcenterui
+    - com.apple.pbs
+    - com.apple.rtcreportingd
+    - com.apple.SafariCloudHistoryPushAgent
+    - com.apple.safaridavclient
+    - com.apple.SafariNotificationAgent
+    - com.apple.security.cloudkeychainproxy
+    - com.apple.SocialPushAgent
+    - com.apple.syncdefaultsd
+    - com.apple.telephonyutilities.callservicesd
+
+- name: Disable system launch daemons
+  sudo: True
+  command: launchctl unload -w /System/Library/LaunchDaemons/{{ item }}.plist
+  with_items:
+    - com.apple.apsd
+    - com.apple.AssetCacheLocatorService
+    - com.apple.awacsd
+    - com.apple.awdd
+    - com.apple.CrashReporterSupportHelper
+    - com.apple.GameController.gamecontrollerd
+    - com.apple.SubmitDiagInfo
+    - com.apple.TMCacheDelete
+
+- name: Disable spotlight suggestions
+  script: fix-macosx.py
+
+- name: Disable Multicast advertisement
+  sudo: True
+  copy: src=com.apple.mDNSResponder.plist dest=/System/Library/LaunchDaemons/com.apple.mDNSResponder.plist
+
+- name: Restart mDNSResponder
+  sudo: True
+  command: killall -9 mDNSResponder
+
+- name: Install newer openssl
+  homebrew: name=openssl state=latest
+
+- name: Link openssl
+  homebrew: name=openssl state=linked install_options=force
+
+- name: Install newer curl
+  homebrew: name=curl state=latest install_options=with-openssl
+
+- name: Link curl
+  homebrew: name=curl state=linked install_options=force
+
+- name: Write curl config
+  copy: src=curlrc dest=~/.curlrc
+
+- name: Look screen as soon as the screensaver starts
+  command: defaults write com.apple.screensaver {{ item }}
+  with_items:
+    - askForPassword -int 1
+    - askForPasswordDelay -int 0
+
+- name: Expose hidden files and Library folder in Finder
+  command: "{{ item }}"
+  with_items:
+    - defaults write com.apple.finder AppleShowAllFiles -bool true
+    - chflags nohidden ~/Library

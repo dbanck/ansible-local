@@ -1,0 +1,8 @@
+---
+- name: Install Filezilla (OS X)
+  homebrew_cask: name=filezilla state=present
+  when: ansible_os_family == 'Darwin'
+
+- name: Install Filezilla (Arch)
+  pacman: name=filezilla state=present
+  when: ansible_os_family == 'Archlinux'

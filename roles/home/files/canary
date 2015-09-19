@@ -1,0 +1,5 @@
+#!/bin/bash
+
+export CHROME_DEVEL_SANDBOX=/usr/local/sbin/chrome-devel-sandbox
+
+$HOME/Applications/chromium-daily/chrome-linux/chrome-wrapper #--disable-web-security

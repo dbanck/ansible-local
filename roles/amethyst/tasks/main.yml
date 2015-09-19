@@ -1,0 +1,3 @@
+---
+- name: Install Amethyst (OS X)
+  homebrew_cask: name=amethyst state=present

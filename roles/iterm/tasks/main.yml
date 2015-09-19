@@ -1,0 +1,26 @@
+---
+- name: Install iTerm2
+  homebrew_cask: name=iterm2 state=present
+
+- name: Install Droid Sans Mono font
+  get_url: url=https://github.com/powerline/fonts/raw/master/DroidSansMono/Droid%20Sans%20Mono%20for%20Powerline.otf dest="~/Library/Fonts/Droid Sans Mono for Powerline.otf"
+
+- name: Install Hack font
+  get_url: url=https://github.com/powerline/fonts/raw/master/Hack/{{ item }} dest=~/Library/Fonts/{{ item }}
+  with_items:
+    - Hack-Bold.ttf
+    - Hack-BoldOblique.ttf
+    - Hack-Regular.ttf
+    - Hack-RegularOblique.ttf
+
+- name: Create config dir
+  file: path=~/.config/iterm2 state=directory mode=0755
+
+- name: Write iterm2 settings file
+  copy: src=com.googlecode.iterm2.plist dest=~/.config/iterm2/com.googlecode.iterm2.plist
+
+- name: Set custom settings folder
+  command: defaults write com.googlecode.iterm2 PrefsCustomFolder -string "/Users/daniel/.config/iterm2"
+
+- name: Enable custom settings folder
+  command: defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool true

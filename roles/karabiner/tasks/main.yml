@@ -1,0 +1,6 @@
+---
+- name: Install Karabiner (OS X)
+  homebrew_cask: name=karabiner state=present
+
+- name: Import settings
+  script: karabiner-import.sh

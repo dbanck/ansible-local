@@ -1,0 +1,8 @@
+---
+- name: Install Firefox (OS X)
+  homebrew_cask: name=firefox state=present
+  when: ansible_os_family == 'Darwin'
+
+- name: Install Firefox (Arch)
+  pacman: name=firefox state=present
+  when: ansible_os_family == 'Archlinux'

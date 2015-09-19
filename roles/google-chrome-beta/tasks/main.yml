@@ -1,0 +1,4 @@
+---
+- name: Install Google Chrome Beta (OS X)
+  homebrew_cask: name=google-chrome-beta state=present
+  when: ansible_os_family == 'Darwin'
