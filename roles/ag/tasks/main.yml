@@ -1,0 +1,8 @@
+---
+- name: Install The Silver Searcher (OS X)
+  homebrew: name=the_silver_searcher state=present
+  when: ansible_os_family == 'Darwin'
+
+- name: Install The Silver Searcher (Arch)
+  pacman: name=the_silver_searcher state=present
+  when: ansible_os_family == 'Archlinux'

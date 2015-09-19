@@ -12,6 +12,9 @@ Run `./run.sh` to start.
 
 Roles can be added or removed from `base.yml` if you don't need them.
 
+#### ag
+The Silver Searcher, similar to `ack`, but faster.
+
 #### Amethyst (OS X only)
 Tiling window manager for OS X.
 
@@ -137,5 +140,4 @@ Simple media playback
 
 #### TODO
 - [ ] Add keybase.io role
-- [ ] Install ag
 - [ ] Add rbenv role
