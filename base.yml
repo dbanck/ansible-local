@@ -20,6 +20,7 @@
     - {role: gpg, tags: gpg}
     - {role: jdk, tags: jdk} # no Arch support yet
     - {role: google-chrome-beta, tags: google-chrome-beta} # no Arch support yet
+    - {role: python3, tags: python3}
     - {role: iterm, tags: iterm, when: "ansible_os_family == 'Darwin'"}
     - {role: flux, tags: flux, when: "ansible_os_family == 'Darwin'"}
     - {role: amethyst, tags: amethyst, when: "ansible_os_family == 'Darwin'"}

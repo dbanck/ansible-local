@@ -97,6 +97,9 @@ Loosely based on [OS-X-Yosemite-Security-and-Privacy-Guide](https://github.com/d
 
 Requires sudo/root.
 
+#### Python 3
+Just Python 3.
+
 #### Seil (OS X only)
 Used to remap Caps Lock to Control Left.
 
@@ -134,6 +137,5 @@ Simple media playback
 
 #### TODO
 - [ ] Add keybase.io role
-- [ ] Add Python 3 role
 - [ ] Install ag
 - [ ] Add rbenv role

@@ -1,0 +1,8 @@
+---
+- name: Install Python 3 (OS X)
+  homebrew: name=python3 state=present
+  when: ansible_os_family == 'Darwin'
+
+- name: Install Python 3 (Arch)
+  pacman: name=python state=present
+  when: ansible_os_family == 'Archlinux'
