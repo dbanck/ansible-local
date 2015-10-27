@@ -18,6 +18,7 @@ Plug 'majutsushi/tagbar'
 Plug 'Valloric/YouCompleteMe'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'edkolev/tmuxline.vim'
+Plug 'rizzatti/dash.vim'
 
 " Colorschemes
 Plug 'altercation/vim-colors-solarized'
@@ -39,5 +40,14 @@ Plug 'klen/python-mode'
 " Elixir
 Plug 'elixir-lang/vim-elixir'
 Plug 'mattonrails/vim-mix'
+
+" Scala
+Plug 'derekwyatt/vim-scala'
+
+" PHP
+Plug 'evidens/vim-twig'
+
+" Haml / Sass / SCSS
+Plug 'tpope/vim-haml'
 
 call plug#end()
