@@ -7,6 +7,7 @@ Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
 
 Plug 'scrooloose/syntastic'
 Plug 'kien/ctrlp.vim'
