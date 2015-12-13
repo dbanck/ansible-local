@@ -15,6 +15,7 @@
   with_items:
     - .vim
     - .vim/autoload
+    - .vim/undodir
 
 - name: Download plug.vim
   get_url: url=https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim dest=~/.vim/autoload/plug.vim force=yes
