@@ -20,7 +20,7 @@
   copy: src=com.googlecode.iterm2.plist dest=~/.config/iterm2/com.googlecode.iterm2.plist
 
 - name: Set custom settings folder
-  command: defaults write com.googlecode.iterm2 PrefsCustomFolder -string "/Users/daniel/.config/iterm2"
+  command: defaults write com.googlecode.iterm2 PrefsCustomFolder -string "/Users/{{ user }}/.config/iterm2"
 
 - name: Enable custom settings folder
   command: defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool true

@@ -1701,7 +1701,7 @@
 			<key>Window Type</key>
 			<integer>0</integer>
 			<key>Working Directory</key>
-			<string>/Users/daniel</string>
+			<string>/Users/{{ user }}</string>
 		</dict>
 	</array>
 	<key>NoSyncTimeOfLastPromo</key>
@@ -1754,7 +1754,7 @@
 		</dict>
 	</dict>
 	<key>PrefsCustomFolder</key>
-	<string>/Users/daniel/.config/iterm2</string>
+	<string>/Users/{{ user }}/.config/iterm2</string>
 	<key>PromptOnQuit</key>
 	<true/>
 	<key>QuitWhenAllWindowsClosed</key>

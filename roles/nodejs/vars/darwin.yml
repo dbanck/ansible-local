@@ -1,2 +1,2 @@
 ---
-npm_prefix: "/Users/daniel/.npm"
+npm_prefix: "/Users/{{ user }}/.npm"
