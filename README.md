@@ -3,6 +3,10 @@
 This is what I use to setup my OS X and/or Arch Linux (WIP) installations.
 Run `./run.sh` to start.
 
+## Before start
+
+Change vars in `group_vars/local` to your own settings.
+
 ## Firstrun
 
 `firstrun.sh` gets executed when you first run `run.sh`. It installs homebrew
