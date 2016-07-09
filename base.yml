@@ -26,6 +26,7 @@
     - {role: flux, tags: flux, when: "ansible_os_family == 'Darwin'"}
     - {role: amethyst, tags: amethyst, when: "ansible_os_family == 'Darwin'"}
     - {role: karabiner, tags: karabiner, when: "ansible_os_family == 'Darwin'"}
+    - {role: hipchat, tags: hipchat, when: "ansible_os_family == 'Darwin'"}
     - {role: seil, tags: seil, when: "ansible_os_family == 'Darwin'"}
     - {role: unrarx, tags: unrarx, when: "ansible_os_family == 'Darwin'"}
     - {role: sourcetree, tags: sourcetree, when: "ansible_os_family == 'Darwin'"}
