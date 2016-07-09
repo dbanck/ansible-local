@@ -9,9 +9,9 @@
   get_url: url=https://github.com/powerline/fonts/raw/master/Hack/{{ item }} dest=~/Library/Fonts/{{ item }}
   with_items:
     - Hack-Bold.ttf
-    - Hack-BoldOblique.ttf
+    - Hack-BoldItalic.ttf
     - Hack-Regular.ttf
-    - Hack-RegularOblique.ttf
+    - Hack-Italic.ttf
 
 - name: Create config dir
   file: path=~/.config/iterm2 state=directory mode=0755
