@@ -17,7 +17,7 @@
   file: path=~/.config/iterm2 state=directory mode=0755
 
 - name: Write iterm2 settings file
-  copy: src=com.googlecode.iterm2.plist dest=~/.config/iterm2/com.googlecode.iterm2.plist
+  template: src=com.googlecode.iterm2.plist.j2 dest=~/.config/iterm2/com.googlecode.iterm2.plist
 
 - name: Set custom settings folder
   command: defaults write com.googlecode.iterm2 PrefsCustomFolder -string "/Users/{{ user }}/.config/iterm2"
