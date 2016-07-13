@@ -15,8 +15,9 @@
     - work
 
 - name: Write scripts (Arch)
-  copy: src={{ item }} dest=~/Applications/bin/{{ item }} mode=0700
+  copy: src=canary dest=~/Applications/bin/canary mode=0700
   when: ansible_os_family == 'Archlinux'
-  with_items:
-    - canary
-    - chromium-daily
+
+- name: Write scripts 2 (Arch)
+  template: src=chromium-daily.j2 dest=~/Applications/bin/chromium-daily mode=0700
+  when: ansible_os_family == 'Archlinux'
