@@ -1,0 +1,14 @@
+---
+- name: Install elm (OS X)
+  homebrew: name=elm state=present
+  when: ansible_os_family == 'Darwin'
+
+- name: Install elm-format (OS X)
+  unarchive: src=https://github.com/avh4/elm-format/releases/download/0.4.0-alpha/elm-format-0.17-0.4.0-alpha-mac-x64.tgz dest=~/Applications/bin copy=no
+  when: ansible_os_family == 'Darwin'
+
+- name: Install elm tools
+  npm: name={{ item }} global=yes state=present
+  with_items:
+    - elm-orcale
+    - elm-test

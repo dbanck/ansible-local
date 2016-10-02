@@ -1,6 +1,9 @@
 #!/bin/bash
 
+set -e
+
 project=$1
 
-traq "$project" $2
+mkdir "$HOME/Projects/weluse/$1" || true
+cd "$HOME/Projects/weluse/$1"
 tmux -2 a -t "$project" || tmux -2 new -s "$project"

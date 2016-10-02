@@ -1,0 +1,3 @@
+---
+- name: Install editorconfig
+  homebrew: name=editorconfig state=present

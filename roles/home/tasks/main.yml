@@ -13,11 +13,3 @@
   with_items:
     - pw
     - work
-
-- name: Write scripts (Arch)
-  copy: src=canary dest=~/Applications/bin/canary mode=0700
-  when: ansible_os_family == 'Archlinux'
-
-- name: Write scripts 2 (Arch)
-  template: src=chromium-daily.j2 dest=~/Applications/bin/chromium-daily mode=0700
-  when: ansible_os_family == 'Archlinux'

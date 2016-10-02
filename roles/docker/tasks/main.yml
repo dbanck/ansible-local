@@ -1,0 +1,8 @@
+---
+- name: Install docker for mac
+  homebrew_cask: name=docker state=present
+  when: ansible_os_family == 'Darwin'
+
+- name: Install docker (Arch)
+  pacman: name=docker state=present
+  when: ansible_os_family == 'Archlinux'

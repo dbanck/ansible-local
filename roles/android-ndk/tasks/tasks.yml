@@ -1,0 +1,4 @@
+---
+- name: Install the Android NDK (OS X)
+  homebrew: name=android-ndk state=present
+  when: ansible_os_family == 'Darwin'

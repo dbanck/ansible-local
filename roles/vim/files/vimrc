@@ -14,7 +14,7 @@ set completeopt-=preview
 set gcr=a:blinkon0
 
 " Customize the wildmenu.
-set wildignore=*.dll,*.o,*.pyc,*.bak,*.exe,*.jpg,*.jpeg,*.png,*.gif,node_modules,.git,bower_components,vendor,dist,env,build,deps
+set wildignore=*.dll,*.o,*.pyc,*.bak,*.exe,*.jpg,*.jpeg,*.png,*.gif,node_modules,.git,bower_components,vendor,dist,env,build,deps,public
 set wildmode=list:full
 
 " We shall not forget.
@@ -165,6 +165,7 @@ set textwidth=80
 noremap <leader>t <Esc>:CtrlP<CR>
 noremap <leader>T <Esc>:CtrlPClearAllCaches<CR>
 noremap <leader>m <Esc>:CtrlPBuffer<CR>
+let g:ctrlp_root_markers = ['.ctrlp']
 
 " Closetag
 let g:closetag_html_style=1
@@ -444,6 +445,14 @@ au FileType go nmap <leader>t <Plug>(go-test)
 au FileType go nmap <leader>c <Plug>(go-coverage)
 
 autocmd BufNewFile,BufRead *.html,*.htm  call s:SelectHTML()
+
+let g:syntastic_javascript_eslint_generic = 1
+let g:syntastic_javascript_eslint_exec = 'xo'
+let g:syntastic_javascript_eslint_args = '--compact'
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_always_populate_loc_list = 1
+
+let g:used_javascript_libs = 'angularjs,jasmine,jquery,angularuirouter'
 
 " =================
 " Personal settings

@@ -1,0 +1,3 @@
+---
+- name: Install Little Snitch (OS X)
+  homebrew_cask: name=little-snitch state=present

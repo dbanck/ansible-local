@@ -4,34 +4,53 @@
 
   roles:
     - {role: cask, tags: cask, when: "ansible_os_family == 'Darwin'"}
-    - {role: vim, tags: vim}
-    - {role: tmux, tags: tmux}
-    - {role: git, tags: git}
-    - {role: home, tags: home}
-    - {role: nodejs, tags: nodejs}
-    - {role: fish, tags: fish}
-    - {role: firefox, tags: firefox}
-    - {role: virtualbox, tags: virtualbox}
-    - {role: vagrant, tags: vagrant}
-    - {role: android-sdk, tags: android-sdk} # no Arch support yet
-    - {role: dropbox, tags: dropbox} # no Arch support yet
-    - {role: filezilla, tags: filezilla}
-    - {role: vlc, tags: vlc}
-    - {role: gpg, tags: gpg}
-    - {role: jdk, tags: jdk} # no Arch support yet
-    - {role: google-chrome-beta, tags: google-chrome-beta} # no Arch support yet
-    - {role: python3, tags: python3}
-    - {role: ag, tags: ag}
-    - {role: iterm, tags: iterm, when: "ansible_os_family == 'Darwin'"}
-    - {role: flux, tags: flux, when: "ansible_os_family == 'Darwin'"}
-    - {role: amethyst, tags: amethyst, when: "ansible_os_family == 'Darwin'"}
-    - {role: karabiner, tags: karabiner, when: "ansible_os_family == 'Darwin'"}
-    - {role: hipchat, tags: hipchat, when: "ansible_os_family == 'Darwin'"}
-    - {role: seil, tags: seil, when: "ansible_os_family == 'Darwin'"}
-    - {role: unrarx, tags: unrarx, when: "ansible_os_family == 'Darwin'"}
-    - {role: sourcetree, tags: sourcetree, when: "ansible_os_family == 'Darwin'"}
-    - {role: google-chrome-canary, tags: google-chrome-canary, when: "ansible_os_family == 'Darwin'"}
-    - {role: anki, tags: anki, when: "ansible_os_family == 'Darwin'"}
-    - {role: caffeine, tags: caffeine, when: "ansible_os_family == 'Darwin'"}
-    - {role: tunnelblick, tags: tunnelblick, when: "ansible_os_family == 'Darwin'"}
-    - {role: osx-security, tags: osx-security, when: "ansible_os_family == 'Darwin'"}
+    ## Basics
+    # - {role: fish, tags: fish}
+    # - {role: git, tags: git}
+    # - {role: home, tags: home}
+    # - {role: iterm, tags: iterm, when: "ansible_os_family == 'Darwin'"}
+    # - {role: kwm, tags: kwm, when: "ansible_os_family == 'Darwin'"}
+    # - {role: osx-security, tags: osx-security, when: "ansible_os_family == 'Darwin'"}
+    # - {role: tmux, tags: tmux}
+    # - {role: vim, tags: vim}
+    ## Basic development stuff
+    # - {role: docker, tags: docker}
+    # - {role: editorconfig, tags: editorconfig, when: "ansible_os_family == 'Darwin'"}
+    # - {role: jdk, tags: jdk}
+    # - {role: nodejs, tags: nodejs}
+    # - {role: elm, tags: elm}
+    # - {role: python3, tags: python3}
+    # - {role: scala, tags: scala}
+    # - {role: the-silver-searcher, tags: the-silver-searcher}
+    # - {role: vagrant, tags: vagrant}
+    # - {role: virtualbox, tags: virtualbox}
+    # rbenv
+    # google-cloud-sdk
+    ## Mobile development stuff
+    # - {role: android-ndk, tags: android-ndk}
+    # - {role: android-sdk, tags: android-sdk}
+    # - {role: watchman, tags: watchman}
+    ## Applications
+    # - {role: amethyst, tags: amethyst, when: "ansible_os_family == 'Darwin'"}
+    # - {role: anki, tags: anki, when: "ansible_os_family == 'Darwin'"}
+    # - {role: atom, tags: atom}
+    # - {role: caffeine, tags: caffeine, when: "ansible_os_family == 'Darwin'"}
+    # - {role: calibre, tags: calibre}
+    # - {role: dash, tags: dash, when: "ansible_os_family == 'Darwin'"}
+    # - {role: dropbox, tags: dropbox}
+    # - {role: filezilla, tags: filezilla}
+    # - {role: firefox, tags: firefox}
+    # - {role: flux, tags: flux, when: "ansible_os_family == 'Darwin'"}
+    # - {role: google-chrome-beta, tags: google-chrome-beta}
+    # - {role: google-chrome-canary, tags: google-chrome-canary, when: "ansible_os_family == 'Darwin'"}
+    # - {role: gpg, tags: gpg}
+    # - {role: hipchat, tags: hipchat, when: "ansible_os_family == 'Darwin'"}
+    # - {role: karabiner, tags: karabiner, when: "ansible_os_family == 'Darwin'"}
+    # - {role: keybase, tags: keybase}
+    # - {role: little-snitch, tags: little-snitch, when: "ansible_os_family == 'Darwin'"}
+    # - {role: seil, tags: seil, when: "ansible_os_family == 'Darwin'"}
+    # - {role: sourcetree, tags: sourcetree, when: "ansible_os_family == 'Darwin'"}
+    # - {role: tunnelblick, tags: tunnelblick, when: "ansible_os_family == 'Darwin'"}
+    # - {role: unrarx, tags: unrarx, when: "ansible_os_family == 'Darwin'"}
+    # - {role: usb-overdrive, tags: usb-overdrive, when: "ansible_os_family == 'Darwin'"}
+    # - {role: vlc, tags: vlc}

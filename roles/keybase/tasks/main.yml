@@ -1,0 +1,4 @@
+---
+- name: Install keybase (OS X)
+  homebrew_cask: name=keybase state=present
+  when: ansible_os_family == 'Darwin'

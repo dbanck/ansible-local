@@ -34,6 +34,7 @@ Plug 'fatih/vim-go'
 " Javascript
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
+Plug 'othree/javascript-libraries-syntax.vim'
 
 " Python
 Plug 'klen/python-mode'
@@ -50,5 +51,8 @@ Plug 'evidens/vim-twig'
 
 " Haml / Sass / SCSS
 Plug 'tpope/vim-haml'
+
+" Elm
+Plug 'elmcast/elm-vim'
 
 call plug#end()

@@ -1,0 +1,16 @@
+---
+- name: Install Atom (OS X)
+  homebrew_cask: name=atom state=present
+  when: ansible_os_family == 'Darwin'
+
+- name: Install Atom plugins
+  command: apm install {{ item }}
+  with_items:
+    - clipboard-plus
+    - ex-mode
+    - jellybeans
+    - linter
+    - nuclide
+    - tool-bar
+    - vim-mode
+    - vim-mode-clipboard-plus

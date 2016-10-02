@@ -1,0 +1,8 @@
+---
+- name: Install Calibre (OS X)
+  homebrew: name=calibre state=present
+  when: ansible_os_family == 'Darwin'
+
+- name: Install Calibre (Arch)
+  pacman: name=calibre state=present
+  when: ansible_os_family == 'Archlinux'

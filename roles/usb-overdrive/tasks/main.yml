@@ -1,0 +1,3 @@
+---
+- name: Install USB Overdrive (OS X)
+  homebrew_cask: name=usb-overdrive state=present

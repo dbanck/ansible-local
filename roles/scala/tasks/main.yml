@@ -1,0 +1,16 @@
+---
+- name: Install scala (OS X)
+  homebrew: name=scala state=present
+  when: ansible_os_family == 'Darwin'
+
+- name: Install sbt (OS X)
+  homebrew: name=sbt state=present
+  when: ansible_os_family == 'Darwin'
+
+- name: Install scala (Arch)
+  pacman: name=scala state=present
+  when: ansible_os_family == 'Archlinux'
+
+- name: Install sbt (Arch)
+  pacman: name=sbt state=present
+  when: ansible_os_family == 'Archlinux'
