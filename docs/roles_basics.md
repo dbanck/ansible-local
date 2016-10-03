@@ -1,4 +1,4 @@
-# Roles : Basics
+# Roles: Basics
 
 ## fish
 Installs the fish shell and oh-my-fish with the bobthefish theme.
@@ -9,13 +9,14 @@ You'll have to enable the shell yourself (requires root):
 - Change shell for current user: `chsh -s /usr/local/bin/fish`
 
 ## git
-Basic git installation, global git configuration and gitignore.
+Basic git installation, global git configuration, and gitignore.
 
 ## home
 Personal directories and bins.
 
 ## iterm (macOS only)
-Installs iterm2, a auch better terminal for OS X, including a configuration with Hack and Droid Sans Mono as fonts and jellybeans as colortheme.
+Installs iterm2, a much better terminal for OS X, including a configuration with
+Hack and Droid Sans Mono as fonts and jellybeans as color theme.
 
 ## kwm (macOS only)
 A tiling window manager. Not a real replacement for i3, but pretty close.

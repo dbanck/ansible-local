@@ -1,4 +1,4 @@
-# Roles : Applications
+# Roles: Applications
 
 ## amethyst (macOS Only)
 Tiling window manager for OS X.
@@ -22,13 +22,13 @@ Dropbox installation.
 Simple FTP client.
 
 ## firefox
-Basic installation of firefox.
+Basic installation of Firefox.
 
 ## flux (macOS Only)
-Removes blue light from screen for working late nights.
+Removes blue light from the screen for working late nights.
 
 ## google-chrome-beta
-Beta version of Google Chrome.
+The beta version of Google Chrome.
 
 ## google-chrome-canary
 Bleeding edge version of Google Chrome for testing things.

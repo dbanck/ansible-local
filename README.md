@@ -1,13 +1,13 @@
-# Setup your PC/macOS using Ansible
+# Setup your new OS installation using Ansible
 
-This is what I use to setup my macOS and/or Arch Linux (WIP) installations.
-It's using ansible with a local connection to create/setup files and `brew` for
-installting software.
+This is what I use to setup my macOS or Arch Linux (WIP) installations.
+It's using ansible with a local connection to create files and `brew` for
+installing software.
 
-Feel free to use it to setup your own hardware.
+Feel free to use it to setup your hardware.
 
-**Rewrite in progress**: I would not suggest using this, until I've tested it
-against a fresh macOS Sierra installation.
+:warning: **Rewrite in progress** :warning:: I would not suggest using this
+until I've tested it against a new macOS Sierra installation.
 
 ## How to start
 
@@ -15,8 +15,7 @@ Clone the repository after a fresh installation of your OS. Have a look at the
 vars inside `group_vars/local` and edit them to your needs.
 
 Have a look at all the roles inside `base.yml` and uncomment the ones you need.
-For a short explaination of all the roles at a look at the [docs](docs/).
-
+For a short explanation of all the Ansible roles at a look at the [docs](docs/).
 
 ## Start the installation
 
@@ -28,5 +27,5 @@ Just execute `run.sh` to start:
 
 ## Contribute
 
-If you've written some generic roles on your own, please open a pull request and
-I'll add them to this collection.
+If you've written some generic Ansible role on your own, please open a pull
+request and I'll add them to this collection.
