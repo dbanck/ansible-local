@@ -2,7 +2,7 @@
 	name = {{ git_name }}
 	email = {{ git_email }}
 [core]
-	excludesfile = ~/.gitignore
+	excludesfile = /Users/{{ user }}/.gitignore
 	autocrlf = input
 	editor = vim
 [color]
@@ -20,7 +20,6 @@
 	changed = green
 	untracked = cyan
 [alias]
-	st = status
 	ci = commit
 	co = checkout
 	br = branch
@@ -35,5 +34,11 @@
 	out = log HEAD..origin
 	killbranches = !git branch | grep -v master | xargs git branch -d 2> /dev/null
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+	please = push --force-with-lease
+	commend = commit --amend --no-edit
+	stsh = stash --keep-index
+	staash = stash --include-untracked
+	staaash = stash --all
+	st = status --short --branch
 [push]
 	default=current
