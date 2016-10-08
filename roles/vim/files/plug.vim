@@ -13,17 +13,15 @@ Plug 'scrooloose/syntastic'
 Plug 'kien/ctrlp.vim'
 Plug 'chreekat/vim-paren-crosshairs'
 Plug 'airblade/vim-gitgutter'
-Plug 'itchyny/lightline.vim'
+Plug 'vim-airline/vim-airline'
 Plug 'Raimondi/delimitMate'
-Plug 'majutsushi/tagbar'
 Plug 'Valloric/YouCompleteMe'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'edkolev/tmuxline.vim'
 Plug 'rizzatti/dash.vim'
 
 " Colorschemes
 Plug 'altercation/vim-colors-solarized'
-Plug 'nanotech/jellybeans.vim'
+Plug 'trevordmiller/nova-vim'
 
 " Ansible
 Plug 'chase/vim-ansible-yaml'
@@ -53,6 +51,6 @@ Plug 'evidens/vim-twig'
 Plug 'tpope/vim-haml'
 
 " Elm
-Plug 'elmcast/elm-vim'
+Plug 'lambdatoast/elm.vim'
 
 call plug#end()
