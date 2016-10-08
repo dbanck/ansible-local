@@ -2,11 +2,8 @@
 - name: Install iTerm2
   homebrew_cask: name=iterm2 state=present
 
-- name: Install Droid Sans Mono font
-  get_url: url=https://github.com/powerline/fonts/raw/master/DroidSansMono/Droid%20Sans%20Mono%20for%20Powerline.otf dest="~/Library/Fonts/Droid Sans Mono for Powerline.otf"
-
 - name: Install Hack font
-  get_url: url=https://github.com/powerline/fonts/raw/master/Hack/{{ item }} dest=~/Library/Fonts/{{ item }}
+  get_url: url=https://github.com/chrissimpkins/Hack/raw/master/build/ttf/{{ item }} dest=~/Library/Fonts/{{ item }}
   with_items:
     - Hack-Bold.ttf
     - Hack-BoldItalic.ttf

@@ -16,7 +16,7 @@ Personal directories and bins.
 
 ## iterm (macOS only)
 Installs iterm2, a much better terminal for OS X, including a configuration with
-Hack and Droid Sans Mono as fonts and jellybeans as color theme.
+Hack as font and nova as color theme.
 
 ## kwm (macOS only)
 A tiling window manager. Not a real replacement for i3, but pretty close.
