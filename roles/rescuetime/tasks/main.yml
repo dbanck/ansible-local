@@ -1,0 +1,3 @@
+---
+- name: Install Rescue Time (OS X)
+  homebrew_cask: name=rescuetime state=present

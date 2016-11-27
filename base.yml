@@ -49,6 +49,7 @@
     # - {role: karabiner, tags: karabiner, when: "ansible_os_family == 'Darwin'"}
     # - {role: keybase, tags: keybase}
     # - {role: little-snitch, tags: little-snitch, when: "ansible_os_family == 'Darwin'"}
+    # - {role: rescuetime, tags: rescuetime, when: "ansible_os_family == 'Darwin'"}
     # - {role: seil, tags: seil, when: "ansible_os_family == 'Darwin'"}
     # - {role: sourcetree, tags: sourcetree, when: "ansible_os_family == 'Darwin'"}
     # - {role: spectacle, tags: spectacle, when: "ansible_os_family == 'Darwin'"}

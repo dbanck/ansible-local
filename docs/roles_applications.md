@@ -50,6 +50,9 @@ Used to remap § to \`.
 
 ## little-snitch (macOS Only)
 
+## Rescue Time (macOS Only)
+Tracks your usage and gives you an overview on how you spent your time.
+
 ## seil (macOS Only)
 Used to remap Caps Lock to Control Left.
 
