@@ -41,6 +41,7 @@
     # - {role: filezilla, tags: filezilla}
     # - {role: firefox, tags: firefox}
     # - {role: flux, tags: flux, when: "ansible_os_family == 'Darwin'"}
+    # - {role: flycut, tags: flycut, when: "ansible_os_family == 'Darwin'"}
     # - {role: franz, tags: franz, when: "ansible_os_family == 'Darwin'"}
     # - {role: google-chrome-beta, tags: google-chrome-beta}
     # - {role: google-chrome-canary, tags: google-chrome-canary, when: "ansible_os_family == 'Darwin'"}
