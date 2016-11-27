@@ -27,6 +27,9 @@ Basic installation of Firefox.
 ## flux (macOS Only)
 Removes blue light from the screen for working late nights.
 
+## franz (macOS Only)
+Combines a lot of messengers into one single application.
+
 ## google-chrome-beta
 The beta version of Google Chrome.
 

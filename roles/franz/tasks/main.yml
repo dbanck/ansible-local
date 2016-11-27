@@ -1,0 +1,3 @@
+---
+- name: Install Franz (OS X)
+  homebrew_cask: name=franz state=present
