@@ -1,0 +1,3 @@
+---
+- name: Install Spectacle (OS X)
+  homebrew_cask: name=spectacle state=present

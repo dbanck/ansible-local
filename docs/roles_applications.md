@@ -53,6 +53,9 @@ Used to remap Caps Lock to Control Left.
 ## sourcetree (macOS Only)
 Nice for viewing commit graphs.
 
+## spectacle (macOS Only)
+Window control with simple and customizable keyboard shortcuts.
+
 ## tunnelblick (macOS Only)
 Just installs Tunnelblick for OpenVPN VPNs. You'll have to import your VPN
 connections manually.

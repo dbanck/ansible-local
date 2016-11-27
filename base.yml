@@ -50,6 +50,7 @@
     # - {role: little-snitch, tags: little-snitch, when: "ansible_os_family == 'Darwin'"}
     # - {role: seil, tags: seil, when: "ansible_os_family == 'Darwin'"}
     # - {role: sourcetree, tags: sourcetree, when: "ansible_os_family == 'Darwin'"}
+    # - {role: spectacle, tags: spectacle, when: "ansible_os_family == 'Darwin'"}
     # - {role: tunnelblick, tags: tunnelblick, when: "ansible_os_family == 'Darwin'"}
     # - {role: unrarx, tags: unrarx, when: "ansible_os_family == 'Darwin'"}
     # - {role: usb-overdrive, tags: usb-overdrive, when: "ansible_os_family == 'Darwin'"}
