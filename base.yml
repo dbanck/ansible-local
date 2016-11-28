@@ -31,6 +31,7 @@
     # - {role: android-sdk, tags: android-sdk}
     # - {role: watchman, tags: watchman}
     ## Applications
+    # - {role: alfred, tags: alfred, when: "ansible_os_family == 'Darwin'"}
     # - {role: amethyst, tags: amethyst, when: "ansible_os_family == 'Darwin'"}
     # - {role: anki, tags: anki, when: "ansible_os_family == 'Darwin'"}
     # - {role: atom, tags: atom}

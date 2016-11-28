@@ -1,5 +1,8 @@
 # Roles: Applications
 
+## alfred (macOS Only)
+Search Bar replacement with customizable functionality
+
 ## amethyst (macOS Only)
 Tiling window manager for OS X.
 
