@@ -27,6 +27,9 @@ Basic installation of Firefox.
 ## flux (macOS Only)
 Removes blue light from the screen for working late nights.
 
+## flycut (macOS Only)
+Very useful clipboard manager.
+
 ## franz (macOS Only)
 Combines a lot of messengers into one single application.
 
