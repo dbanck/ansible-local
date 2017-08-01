@@ -15,3 +15,7 @@
 
 - name: Write npmrc
   template: src=npmrc.j2 dest=~/.npmrc
+
+- name: Install yarn (OS X)
+  homebrew: name=yarn state=present
+  when: ansible_os_family == 'Darwin'
