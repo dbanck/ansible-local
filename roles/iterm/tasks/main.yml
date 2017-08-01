@@ -3,12 +3,7 @@
   homebrew_cask: name=iterm2 state=present
 
 - name: Install Hack font
-  get_url: url=https://github.com/chrissimpkins/Hack/raw/master/build/ttf/{{ item }} dest=~/Library/Fonts/{{ item }}
-  with_items:
-    - Hack-Bold.ttf
-    - Hack-BoldItalic.ttf
-    - Hack-Regular.ttf
-    - Hack-Italic.ttf
+  homebrew_cask: name=font-hack state=present
 
 - name: Create config dir
   file: path=~/.config/iterm2 state=directory mode=0755
