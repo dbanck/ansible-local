@@ -1,0 +1,3 @@
+---
+- name: Install Bartender (OS X)
+  homebrew_cask: name=bartender state=present
