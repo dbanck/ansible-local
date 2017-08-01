@@ -14,14 +14,15 @@ Plug 'kien/ctrlp.vim'
 Plug 'chreekat/vim-paren-crosshairs'
 Plug 'airblade/vim-gitgutter'
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'Raimondi/delimitMate'
 Plug 'Valloric/YouCompleteMe'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'rizzatti/dash.vim'
+Plug 'lervag/vimtex'
 
 " Colorschemes
 Plug 'altercation/vim-colors-solarized'
-Plug 'trevordmiller/nova-vim'
 
 " Ansible
 Plug 'chase/vim-ansible-yaml'

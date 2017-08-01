@@ -296,7 +296,7 @@ let g:used_javascript_libs = 'angularjs,jasmine,jquery,angularuirouter'
 " Personal settings
 " =================
 
-colorscheme nova
+colorscheme solarized
 call togglebg#map("<F5>")
 
 nmap <silent> <leader>d <Plug>DashSearch

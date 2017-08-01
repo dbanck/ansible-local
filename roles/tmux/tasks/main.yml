@@ -7,5 +7,8 @@
   pacman: name=tmux state=present
   when: ansible_os_family == 'Archlinux'
 
+- name: Clone tmux plugin manager
+  git: repo=https://github.com/tmux-plugins/tpm dest=~/.tmux/plugins/tpm
+
 - name: Write tmux config
   copy: src=tmux.conf dest=~/.tmux.conf
