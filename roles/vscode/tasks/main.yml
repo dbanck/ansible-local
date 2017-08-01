@@ -1,0 +1,4 @@
+---
+- name: Install Visual Studio Code (OS X)
+  homebrew_cask: name=visual-studio-code state=present
+  when: ansible_os_family == 'Darwin'

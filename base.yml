@@ -24,6 +24,7 @@
     # - {role: the-silver-searcher, tags: the-silver-searcher}
     # - {role: vagrant, tags: vagrant}
     # - {role: virtualbox, tags: virtualbox}
+    # - {role: vscode, tags: vscode, when: "ansible_os_family == 'Darwin'"}
     # rbenv
     # google-cloud-sdk
     ## Mobile development stuff
