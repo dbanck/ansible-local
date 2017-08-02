@@ -1,0 +1,6 @@
+---
+- name: Install Karabiner (OS X)
+  homebrew_cask: name=karabiner-elements state=present
+
+- name: Write Config
+  copy: src=karabiner.json dest=~/.config/karabiner/karabiner.json

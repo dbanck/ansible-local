@@ -1,6 +1,0 @@
----
-- name: Install Seil (OS X)
-  homebrew_cask: name=seil state=present
-
-- name: Import settings
-  script: seil-import.sh
