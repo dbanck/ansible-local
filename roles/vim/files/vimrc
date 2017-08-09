@@ -302,3 +302,5 @@ call togglebg#map("<F5>")
 nmap <silent> <leader>d <Plug>DashSearch
 
 let g:syntastic_python_checkers=['flake8']
+
+set clipboard=unnamed
