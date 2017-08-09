@@ -1,4 +1,4 @@
 ---
 - name: Install the Android SDK (OS X)
-  homebrew: name=android-sdk state=present
+  homebrew_cask: name=android-sdk state=present
   when: ansible_os_family == 'Darwin'
