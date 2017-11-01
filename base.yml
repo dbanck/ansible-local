@@ -9,8 +9,6 @@
     # - {role: git, tags: git}
     # - {role: home, tags: home}
     # - {role: iterm, tags: iterm, when: "ansible_os_family == 'Darwin'"}
-    # - {role: kwm, tags: kwm, when: "ansible_os_family == 'Darwin'"}
-    # - {role: osx-security, tags: osx-security, when: "ansible_os_family == 'Darwin'"}
     # - {role: tmux, tags: tmux}
     # - {role: vim, tags: vim}
     ## Basic development stuff
@@ -32,6 +30,7 @@
     # - {role: android-sdk, tags: android-sdk}
     # - {role: watchman, tags: watchman}
     ## Applications
+    # - {role: 1password, tags: 1password, when: "ansible_os_family == 'Darwin'"}
     # - {role: alfred, tags: alfred, when: "ansible_os_family == 'Darwin'"}
     # - {role: amethyst, tags: amethyst, when: "ansible_os_family == 'Darwin'"}
     # - {role: anki, tags: anki, when: "ansible_os_family == 'Darwin'"}
@@ -49,7 +48,7 @@
     # - {role: google-chrome-canary, tags: google-chrome-canary, when: "ansible_os_family == 'Darwin'"}
     # - {role: gpg, tags: gpg}
     # - {role: hipchat, tags: hipchat, when: "ansible_os_family == 'Darwin'"}
-    # - {role: karabiner, tags: karabiner, when: "ansible_os_family == 'Darwin'"}
+    # - {role: karabiner-elements, tags: karabiner-elements, when: "ansible_os_family == 'Darwin'"}
     # - {role: keybase, tags: keybase}
     # - {role: little-snitch, tags: little-snitch, when: "ansible_os_family == 'Darwin'"}
     # - {role: rescuetime, tags: rescuetime, when: "ansible_os_family == 'Darwin'"}
