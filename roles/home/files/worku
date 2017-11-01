@@ -1,0 +1,6 @@
+#!/bin/bash
+
+set -e
+
+cd "$HOME/Projects/Uni"
+tmux -2 a -t "uni" || tmux -2 new -s "uni"
