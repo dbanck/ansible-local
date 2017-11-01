@@ -1,13 +1,10 @@
 # Setup your new OS installation using Ansible
 
-This is what I use to setup my macOS or Arch Linux (WIP) installations.
-It's using ansible with a local connection to create files and `brew` for
-installing software.
+This is what I use to setup my macOS (Sierra, High Sierra) or Arch Linux (WIP)
+installations.  It's using ansible with a local connection to create files and
+`brew` for installing software.
 
 Feel free to use it to setup your hardware.
-
-:warning: **Rewrite in progress** :warning:: I would not suggest using this
-until I've tested it against a new macOS Sierra installation.
 
 ## How to start
 
