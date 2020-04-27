@@ -8,7 +8,7 @@
   when: ansible_os_family == 'Archlinux'
 
 - name: Create dirs
-  file: path=~/.config/{{ item }} state=directory mode=0755
+  file: path=~/.config/{{ item }} state=directory mode=0700
   with_items:
     - fish
     - omf
@@ -16,14 +16,17 @@
 - name: Clone oh-my-fish
   git: repo=https://github.com/oh-my-fish/oh-my-fish.git dest=~/.local/share/omf
 
-- name: Write fish config
-  copy: src=config.fish dest=~/.config/fish/config.fish
-
 - name: Write oh-my-fish theme
   copy: src=theme dest=~/.config/omf/theme
 
 - name: Write oh-my-fish bundle
   copy: src=bundle dest=~/.config/omf/bundle
+
+- name: Write oh-my-fish channel
+  copy: src=channel dest=~/.config/omf/channel
+
+- name: Write fish config
+  copy: src=init.fish dest=~/.config/omf/init.fish
 
 - name: Installing fish themes/packages
   command: fish -c "omf install"
