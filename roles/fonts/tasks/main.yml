@@ -1,0 +1,6 @@
+---
+- name: Tab Homebrew Cask Fonts
+  homebrew_tap: tap=homebrew/cask-fonts state=present
+
+- name: Install Hack font
+  homebrew_cask: name=font-hack state=present

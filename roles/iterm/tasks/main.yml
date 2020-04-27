@@ -2,9 +2,6 @@
 - name: Install iTerm2
   homebrew_cask: name=iterm2 state=present
 
-- name: Install Hack font
-  homebrew_cask: name=font-hack state=present
-
 - name: Create config dir
   file: path=~/.config/iterm2 state=directory mode=0755
 
