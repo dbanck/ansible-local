@@ -1,0 +1,3 @@
+---
+- name: Install Zoom (OS X)
+  homebrew_cask: name=zoomus state=present
