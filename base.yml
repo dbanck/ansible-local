@@ -3,7 +3,6 @@
   connection: local
 
   roles:
-    - {role: cask, tags: cask, when: "ansible_os_family == 'Darwin'"}
     ## Basics
     # - {role: fish, tags: fish}
     # - {role: git, tags: git}

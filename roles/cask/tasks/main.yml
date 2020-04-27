@@ -1,9 +1,0 @@
----
-- name: Tab Homebrew Cask
-  homebrew_tap: tap=caskroom/cask state=present
-
-- name: Tab Homebrew Cask Versions
-  homebrew_tap: tap=caskroom/versions state=present
-
-- name: Tab Homebrew Cask Fonts
-  homebrew_tap: tap=caskroom/fonts state=present
