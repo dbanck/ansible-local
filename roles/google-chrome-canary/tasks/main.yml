@@ -1,3 +1,0 @@
----
-- name: Install Google Chrome Canary (OS X)
-  homebrew_cask: name=google-chrome-canary state=present
