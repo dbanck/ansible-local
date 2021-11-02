@@ -12,4 +12,3 @@
   copy: src={{ item }} dest=~/Applications/bin/{{ item }} mode=0700
   with_items:
     - pw
-    - workw
