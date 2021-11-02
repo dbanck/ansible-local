@@ -2,7 +2,7 @@
 # Change vars according to your setup
 
 # Global
-user: "daniel"
+user: "dbanck"
 
 # Git
 git_name: "Daniel Banck"
