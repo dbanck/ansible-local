@@ -1,0 +1,7 @@
+---
+- name: Tab Homebrew Cask Versions
+  homebrew_tap: tap=homebrew/cask-versions state=present
+
+- name: Install Visual Studio Code Insiders (OS X)
+  homebrew_cask: name=visual-studio-code-insiders state=present
+  when: ansible_os_family == 'Darwin'
