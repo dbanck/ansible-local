@@ -28,6 +28,9 @@
 - name: Write fish config
   copy: src=init.fish dest=~/.config/omf/init.fish
 
+- name: Write fish omf config
+  copy: src=omf.fish dest=~/.config/fish/conf.d/omf.fish
+
 - name: Installing fish themes/packages
   command: fish -c "omf install"
 
