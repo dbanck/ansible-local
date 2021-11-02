@@ -77,7 +77,15 @@
 	staash = stash --include-untracked
 	staaash = stash --all
 	st = status --short --branch
+	rebase-last-twenty = "!b=\"$(git rev-parse --abbrev-ref HEAD)\" ; h=\"$(git rev-parse $b)\" ; echo \"Current branch: $b $h\" ; c=\"$(git rev-parse $b~19)\" ; echo \"Recreating $b branch with initial commit $c ...\" ; git checkout --orphan new-start $c ; git commit -C $c ; git rebase --onto new-start $c $b ; git branch -d new-start ; git gc"
 [push]
 	default=current
 [rebase]
 	autosquash = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[init]
+	defaultBranch = main
