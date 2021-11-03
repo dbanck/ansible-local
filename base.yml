@@ -10,12 +10,14 @@
     - {role: home, tags: home}
     - {role: iterm, tags: iterm, when: "ansible_os_family == 'Darwin'"}
     - {role: tmux, tags: tmux}
+    - {role: ripgrep, tags: ripgrep}
     # - {role: vim, tags: vim}
     ## Basic development stuff
     # - {role: docker, tags: docker}
     - {role: editorconfig, tags: editorconfig, when: "ansible_os_family == 'Darwin'"}
     # - {role: jdk, tags: jdk}
     - {role: nodejs, tags: nodejs}
+    - {role: go, tags: go}
     # - {role: elm, tags: elm}
     # - {role: python3, tags: python3}
     # - {role: scala, tags: scala}
