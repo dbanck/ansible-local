@@ -1,0 +1,4 @@
+---
+- name: Install ripgrep (OS X)
+  homebrew_cask: name=rg state=present
+  when: ansible_os_family == 'Darwin'
