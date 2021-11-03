@@ -8,7 +8,11 @@
 - name: Create bin dir
   file: path=~/Applications/bin state=directory mode=0700
 
-- name: Write scripts
-  copy: src={{ item }} dest=~/Applications/bin/{{ item }} mode=0700
-  with_items:
-    - pw
+- name: Write pw script
+  copy: src=pw dest=~/Applications/bin/pw mode=0700
+
+- name: Create ssh dir
+  file: path=~/.ssh state=directory mode=0700
+
+- name: Write ssh config
+  copy: src=ssh/config dest=~/.ssh/config mode=0700
