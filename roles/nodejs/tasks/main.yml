@@ -19,3 +19,7 @@
 - name: Install yarn (OS X)
   homebrew: name=yarn state=present
   when: ansible_os_family == 'Darwin'
+
+- name: Install volta (OS X)
+  homebrew: name=volta state=present
+  when: ansible_os_family == 'Darwin'
