@@ -1,0 +1,4 @@
+---
+- name: Install Spotify (OS X)
+  homebrew_cask: name=spotify state=present
+  when: ansible_os_family == 'Darwin'
