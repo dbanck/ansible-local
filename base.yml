@@ -47,13 +47,14 @@
     # - {role: flux, tags: flux, when: "ansible_os_family == 'Darwin'"}
     # - {role: flycut, tags: flycut, when: "ansible_os_family == 'Darwin'"}
     # - {role: franz, tags: franz, when: "ansible_os_family == 'Darwin'"}
-    # - {role: google-chrome, tags: google-chrome}
+    - {role: google-chrome, tags: google-chrome}
     # - {role: gpg, tags: gpg}
     # - {role: hipchat, tags: hipchat, when: "ansible_os_family == 'Darwin'"}
     - {role: karabiner-elements, tags: karabiner-elements, when: "ansible_os_family == 'Darwin'"}
     # - {role: keybase, tags: keybase}
     # - {role: jetbrains-toolbox, tags: jetbrains-toolbox}
     # - {role: little-snitch, tags: little-snitch, when: "ansible_os_family == 'Darwin'"}
+    - {role: obsidian, tags: obsidian}
     # - {role: rescuetime, tags: rescuetime, when: "ansible_os_family == 'Darwin'"}
     # - {role: seil, tags: seil, when: "ansible_os_family == 'Darwin'"}
     # - {role: sourcetree, tags: sourcetree, when: "ansible_os_family == 'Darwin'"}
